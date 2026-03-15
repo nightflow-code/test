@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Discord</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/animations.css">
+  <link rel="stylesheet" href="static/css/responsive.css">
+</head>
+<body>
+
+  <!-- --- Nagłówek --- -->
+  <header>
+    <h1>Moje Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#o-mnie">O mnie</a></li>
+        <li><a href="#serwery">Serwery Discord</a></li>
+        <li><a href="#projekty">Projekty</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- --- Sekcja O mnie --- -->
+  <section id="o-mnie" class="fade-in">
+    <img src="static/images/avatar.png" alt="Avatar" class="avatar pulse-avatar">
+    <h2>O mnie</h2>
+    <p>Hej! Jestem twórcą serwerów Discord. Tutaj znajdziesz moje projekty i serwery!</p>
+  </section>
+
+  <!-- --- Sekcja Serwery Discord --- -->
+  <section id="serwery" class="section-animate">
+    <h2>Serwery Discord</h2>
+    <!-- Karty będą generowane przez mapin.js -->
+  </section>
+
+    <div class="card">
+    <h3>Serwer Testowy</h3>
+    <p>Opis pierwszego zlecenia – kanały, boty i społeczność.</p>
+    <img src="static/images/ss1.png" alt="Screenshot serwera Testowego" class="card-img">
+    <a href="https://discord.gg/twójlink" target="_blank" class="btn-link">Przejdź do serwera</a>
+  </div>
+  
+    <div class="card">
+    <h3>Serwer Testowy</h3>
+    <p>Opis pierwszego zlecenia – kanały, boty i społeczność.</p>
+    <img src="static/images/ss1.png" alt="Screenshot serwera Testowego" class="card-img">
+    <a href="https://discord.gg/twójlink" target="_blank" class="btn-link">Przejdź do serwera</a>
+  </div>
+
+    <div class="card">
+    <h3>Serwer Testowy</h3>
+    <p>Opis pierwszego zlecenia – kanały, boty i społeczność.</p>
+    <img src="static/images/ss1.png" alt="Screenshot serwera Testowego" class="card-img">
+    <a href="https://discord.gg/twójlink" target="_blank" class="btn-link">Przejdź do serwera</a>
+  </div>
+
+  <!-- --- Sekcja Projekty --- -->
+  <section id="projekty" class="section-animate">
+    <h2>Projekty</h2>
+    <div class="card">
+      <h3>BRAK DANYCH</h3>
+      <p>TEST</p>
+    </div>
+  </section>
+
+  
+
+
+  <!-- --- Skrypty --- -->
+  <script>
+    // Animacje przy scrollowaniu
+    const faders = document.querySelectorAll('.fade-in, .section-animate');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+  <!-- Nasz skrypt do generowania kart -->
+  <script src="static/js/mapin.js"></script>
+
+</body>
+</html>
